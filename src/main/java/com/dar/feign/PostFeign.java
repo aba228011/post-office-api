@@ -1,6 +1,6 @@
 package com.dar.feign;
 
-import com.dar.model.PostModel;
+import com.dar.model.PostResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +14,8 @@ public interface PostFeign {
     String checkPost();
 
     @GetMapping("/post/all")
-    List<PostModel> getAllPosts();
+    List<PostResponse> getAllPosts();
 
     @GetMapping("/post/{postId}")
-    PostModel getPostById(@PathVariable String postId);
+    PostResponse getPostById(@PathVariable String postId);
 }

@@ -1,9 +1,9 @@
 package com.dar.feign;
 
-import com.dar.model.ClientModel;
+import com.dar.model.ClientRequest;
+import com.dar.model.ClientResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,9 +13,12 @@ public interface ClientFeign {
     @GetMapping("/client/check")
     String checkClient();
 
-    @GetMapping("/client/all")
-    List<ClientModel> getAllClients();
+    @PostMapping("/client")
+    ClientResponse createClient(@RequestBody ClientRequest clientRequest, @RequestParam String clientId);
 
-    @GetMapping("/client/{clientId}")
-    ClientModel getClientById(@PathVariable String clientId);
+    @GetMapping("/client/all")
+    List<ClientResponse> getAllClients();
+
+    @GetMapping("/client")
+    ClientResponse getClientById(@RequestParam String clientId);
 }

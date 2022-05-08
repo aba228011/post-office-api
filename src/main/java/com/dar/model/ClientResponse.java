@@ -4,15 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PostDetailInfo {
-    String postId;
+public class ClientResponse {
+    String clientId;
 
-    ClientResponse client;
-    ClientResponse receiver;
+    String fullName;
 
-    String postItem;
-    String status;
+    String email;
 }
